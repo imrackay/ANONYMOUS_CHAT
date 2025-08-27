@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anonymous Chat - ระบายใจกับคนแปลกหน้า</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- หน้าแรก - กรอกข้อมูล -->
+        <div id="login-screen" class="screen active">
+            <div class="terminal-window">
+                <div class="terminal-header">
+                    <span class="terminal-title">ANONYMOUS_CHAT.EXE</span>
+                </div>
+                <div class="terminal-body">
+                    <div class="ascii-art">
+    ╔═══════════════════════════════════════╗
+    ║     ANONYMOUS STRESS RELIEF CHAT      ║
+    ║           คุยระบายกับคนแปลกหน้า         ║
+    ╚═══════════════════════════════════════╝
+                    </div>
+                    
+                    <div class="login-form">
+                        <div class="input-group">
+                            <label>> ชื่อเล่น:</label>
+                            <input type="text" id="name" placeholder="ใส่ชื่อเล่น" maxlength="20">
+                        </div>
+                        
+                        <div class="input-group">
+                            <label>> อายุ:</label>
+                            <input type="number" id="age" placeholder="ใส่อายุ" min="13" max="99">
+                        </div>
+                        
+                        <div class="input-group">
+                            <label>> เพศ:</label>
+                            <select id="gender">
+                                <option value="">เลือกเพศ</option>
+                                <option value="ชาย">ชาย</option>
+                                <option value="หญิง">หญิง</option>
+                                <option value="อื่นๆ">อื่นๆ</option>
+                            </select>
+                        </div>
+                        
+                        <button id="join-btn" class="btn-primary">
+                            > เข้าสู่ระบบ
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- หน้ารอคู่แชท -->
+        <div id="waiting-screen" class="screen">
+            <div class="terminal-window">
+                <div class="terminal-header">
+                    <span class="terminal-title">SEARCHING_PARTNER.EXE</span>
+                </div>
+                <div class="terminal-body">
+                    <div class="waiting-animation">
+                        <div class="loading-text">
+                            <span class="blinking">></span> กำลังค้นหาคู่แชท...
+                        </div>
+                        <div class="loading-dots">
+                            <span>.</span><span>.</span><span>.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- หน้าแชท -->
+        <div id="chat-screen" class="screen">
+            <div class="terminal-window">
+                <div class="terminal-header">
+                    <span class="terminal-title">CHAT_SESSION.EXE</span>
+                    <div class="partner-info" id="partner-info"></div>
+                </div>
+                <div class="terminal-body">
+                    <div id="chat-messages" class="chat-messages"></div>
+                    <div class="chat-input-container">
+                        <input type="text" id="message-input" placeholder="พิมพ์ข้อความ..." maxlength="500">
+                        <button id="send-btn">SEND</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
